@@ -1,0 +1,102 @@
+﻿
+
+Takeaway: .NET allows you to create powerful solutions without expending too much effort. Find out how to develop a Web service that will receive and produce files as binary data.
+
+The beauty of .NET is its simplistic approach towards solution development. With just a few lines of code, you can create powerful solutions without expending too much effort into the how's and why's of the inner workings of modular design.
+
+Standard types ensure that all the modules will work in concert, and the Framework ensures that components will communicate with each other in a nice fashion. One way to observe this "active translation" is a .NET Web service. In this article, I'll develop a Web service that will receive and produce files as binary data.
+
+Sending binary data across the Internet does have its disadvantages. For instance, different operating systems respond to binary data in different ways. In order to avoid the confusion, the base64 encoding scheme was incorporated to encode binary data so all operating systems could translate the data to their native tongues.
+
+In order to send files across the wire before, you usually had to open the file, read the contents into a buffer, encode the buffer, and send the encoded data down the wire. In legacy ASP apps, I would open files with an ADODB.Stream object, encode the stream using the CAPICOM.Utilities functionality, and either set the return value of the function as a String or write the encoded string to the Response buffer. That's a lot of overhead.
+
+With .NET, you use the File class in the System.IO namespace to open the file. This returns a Stream object to which you can cast as a BinaryReader or BinaryWriter object. Using the BinaryReader object's ReadBytes method, you can obtain a byte array that you can use as the return value on the Web method. Here's the code:
+
+<%@ WebService language="C#" class="FileRW" Debug="true" %>
+
+using System;
+using System.Web.Services;
+using System.Xml.Serialization;
+using System.IO;
+
+[WebService(Namespace="http://someplace.com/FileIO/")]
+public class FileRW : WebService {
+
+    [WebMethod]
+    public byte[] GetFile(string filename) {
+        BinaryReader binReader = new
+ BinaryReader(File.Open(Server.MapPath(filename), FileMode.Open,
+ FileAccess.Read));
+        binReader.BaseStream.Position = 0;
+        byte[] binFile =
+ binReader.ReadBytes(Convert.ToInt32(binReader.BaseStream.Length));
+        binReader.Close();
+        return binFile;
+    }
+
+    [WebMethod]
+    public void PutFile(byte[] buffer, string filename) {
+        BinaryWriter binWriter = new
+ BinaryWriter(File.Open(Server.MapPath(filename), FileMode.CreateNew,
+ FileAccess.ReadWrite));
+        binWriter.Write(buffer);
+        binWriter.Close();
+    }
+}
+
+The GetFile() method accepts a string parameter, filename. The current virtual directory is used to obtain the file using the filename parameter. The file is opened as a BinaryReader type with Read access. The total bytes of the file are stored to a local variable of type byte[] - a byte array. The file stream is closed, and the Web method returns the byte array.
+
+The PutFile() method accepts a byte array, buffer, and a string, filename. A file with the name filename is created as a BinaryWriter type with ReadWrite access. The byte array is written to the file stream and the file stream is closed.
+
+Now test the code by navigating to the .asmx file you just created using your browser. You should be prompted with links to the two Web methods. Then, test the GetFile() method. Enter a file name that you know exists on the virtual root of the Web service application. Click on the Invoke button, and you'll see the base64 encoded string of the file contents.
+
+In order to test the PutFile() method, I created a Web service client using the ASP.NET Web Matrix IDE, which is a free download from Microsoft. Follow the instructions in the Create a Web service client tutorial to create a Web Service Proxy using the Web Service Proxy Generator; however, use the namespace and from above and the URL to your Web service for the WSDL URL. Set the Output Directory to the same directory as your Web service virtual root and then generate the proxy.
+
+Create a new ASP.NET Web page. Add the following code to your new page:
+
+<%@ Page Language="C#" Debug="true" %>
+<script runat="server">
+
+    // Insert page code here
+    //
+
+    void Button1_Click(object sender, EventArgs e) {
+        string filename = "c:\\temp\\" + Guid.NewGuid().ToString() + ".tmp";
+        file1.PostedFile.SaveAs(filename);
+        System.IO.BinaryReader br = new
+ System.IO.BinaryReader(System.IO.File.Open(filename, System.IO.FileMode.Open,
+ System.IO.FileAccess.Read));
+        FileIO.FileRW frw = new FileIO.FileRW();
+        frw.Credentials = System.Net.CredentialCache.DefaultCredentials;
+        br.BaseStream.Position = 0;
+        Response.Write(br.BaseStream.Length);
+        byte[] buffer = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
+        br.Close();
+        frw.PutFile(buffer,
+file1.PostedFile.FileName.Substring(file1.PostedFile.FileName.LastIndexOf("\\")
++ 1));
+    }
+
+</script>
+<html>
+<head>
+</head>
+<body>
+    <form enctype="multipart/form-data" runat="server">
+        <p>
+            <input id="file1" type="file" name="file1" runat="server"/>
+        </p>
+        <p>
+            &nbsp;<asp:Button id="Button1" onclick="Button1_Click"
+ runat="server" Text="Button"></asp:Button>
+        </p>
+        <!-- Insert content here -->
+    </form>
+</body>
+</html>
+
+You'll probably have to adjust the permissions in your web.config file to impersonate or allow full control to the ASP.NET machine account to the upload directory - C:\temp\. Also, it's important to notice that if you choose to impersonate, which is how I set up my local server, you need to pass the authenticated credentials along to the Web service. This is done by the line: frw.Credentials = System.Net.CredentialCache.DefaultCredentials;. If you don't do this, you'll probably spend a lot of time debugging. Run the client page and try uploading a file.
+
+The client page saves the uploaded file (file1.PostedFile) to a local temporary file. It then opens a buffer and posts the buffer to our Web service with the uploaded file's FileName. You can see that handling uploaded files is easy as well.
+
+Keep your developer skills sharp by automatically signing up for TechRepublic's free Web Development Zone newsletter, delivered each Tuesday.

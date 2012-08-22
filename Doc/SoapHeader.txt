@@ -1,0 +1,89 @@
+﻿
+In this brief article I intend to show how you can secure your web service by using SOAP headers. Often times we create a web service that we only want to enable for our own clients or would like to enable only for authorized clients. You can accomplish this by using SOAP headers to authenticate the client and process the request or throw an exception when they are not properly authorized.
+
+Let's start with the web service itself. I will begin by defining a simple web service with one method named: HelloWorld. Please find the code below: 
+using System;
+using System.Web;
+using System.Web.Services;
+using System.Web.Services.Protocols;
+
+
+[WebService(Namespace = "http://tempuri.org/")]
+[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+
+
+public class Service : System.Web.Services.WebService
+{
+    public ValidationSoapHeader Authentication;
+    private const string DEV_TOKEN = "12345";
+    public Service()
+    {
+        //Uncomment the following line if using designed components 
+        //InitializeComponent(); 
+    }
+
+
+    [SoapHeader("Authentication")]
+    [WebMethod]
+
+
+    public string HelloWorld()
+    {
+        if (Authentication != null && Authentication.DevToken == DEV_TOKEN)
+        {
+            return "Hello World";
+        }
+        else
+        {
+            throw new Exception("Authentication Failed");
+        }
+    }
+}
+You will see I have add the Attribute [SoapHeader("Authentication")] which will add the SOAP header as part of that method. In addition within the body of the method you will see the check: 
+
+if (Authentication != null && Authentication.DevToken == DEV_TOKEN)
+
+this will check to see if the token being passed in from the client matches the once defined in the service. We have to check for null as well since the .net 2.0 will not require the headers.  You could obviously take this to a more granular level and define a token for each user or a token defined in the web.config. If the token does match then process the method and return "Hello World'. If the token does not match then throw an exception.
+Please see the ValidationSoapHeader class defined below:
+using System;
+using System.Data;
+using System.Configuration;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Web.Services.Protocols;
+
+
+/// <summary>
+/// Summary description for ePhoneCredentials
+/// </summary>
+public class ValidationSoapHeader : SoapHeader
+{
+    private string _devToken;
+    public ValidationSoapHeader()
+    {
+    }
+    public ValidationSoapHeader(string devToken)
+    {
+        this._devToken = devToken;
+    }
+    public string DevToken
+    {
+        get { return this._devToken; }
+        set { this._devToken = value; }
+    }
+}
+
+As for the client side. I created a simple console application and added the web service as a reference in the project.
+
+localhost.ValidationSoapHeader header = new ConsoleMyCsharpClient.localhost.ValidationSoapHeader();
+header.DevToken = "12345";
+localhost.Service ws = new ConsoleMyCsharpClient.localhost.Service();
+ws.ValidationSoapHeaderValue = header;
+Console.WriteLine(ws.HelloWorld());
+Console.ReadLine(); 
+You see the instantiation of the header and I assign the DevToken. If I had not passed in a header or passed in the wrong value we would receive an "Authentication Failed" exception.
+

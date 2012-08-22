@@ -1,0 +1,90 @@
+<publishData>
+  <publishTarget publishUrl="ftp://xxxcnn7767.hospedagemdesites.ws/webservice/neofilesystemservice/">
+    <file relUrl="NeoFileSystemService.asmx" publishTime="04/15/2009 16:02:48" />
+    <file relUrl="ValidationSoapHeader.cs" publishTime="04/23/2010 16:16:34" />
+    <file relUrl="bin/_svn/entries" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="bin/_svn/text-base/NeoFileSystemService.dll.svn-base" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="Web.config" publishTime="04/15/2009 16:02:52" />
+    <file relUrl="NeoFileSystemService.csproj" publishTime="04/16/2009 15:16:28" />
+    <file relUrl="bin/_svn/prop-base/NeoFileSystemService.pdb.svn-base" publishTime="06/03/2009 14:00:31" />
+    <file relUrl="NeoFileSystemService.csproj.user" publishTime="01/15/2010 17:56:04" />
+    <file relUrl="bin/NeoFileSystemService.dll" publishTime="08/05/2010 17:30:55" />
+    <file relUrl="Doc/SoapHeader.txt" publishTime="04/16/2009 14:55:49" />
+    <file relUrl="Properties/AssemblyInfo.cs" publishTime="04/15/2009 14:59:33" />
+    <file relUrl="Doc/FileTransfer.txt" publishTime="04/16/2009 14:57:23" />
+    <file relUrl="bin/_svn/all-wcprops" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="bin/_svn/text-base/NeoFileSystemService.pdb.svn-base" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="bin/NeoFileSystemService.pdb" publishTime="08/05/2010 17:30:55" />
+    <file relUrl="NeoFileSystemService.asmx.cs" publishTime="08/05/2010 17:29:38" />
+    <file relUrl="bin/_svn/prop-base/NeoFileSystemService.dll.svn-base" publishTime="06/03/2009 14:00:31" />
+  </publishTarget>
+  <publishTarget publishUrl="ftp://xxxcnn7767.hospedagemdesites.ws/webservice/">
+    <file relUrl="bin/_svn/text-base/NeoFileSystemService.dll.svn-base" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="bin/_svn/text-base/NeoFileSystemService.pdb.svn-base" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="bin/_svn/prop-base/NeoFileSystemService.dll.svn-base" publishTime="06/03/2009 14:00:31" />
+    <file relUrl="bin/_svn/prop-base/NeoFileSystemService.pdb.svn-base" publishTime="06/03/2009 14:00:31" />
+    <file relUrl="Doc/SoapHeader.txt" publishTime="04/16/2009 14:55:49" />
+    <file relUrl="bin/NeoFileSystemService.pdb" publishTime="08/05/2010 17:30:55" />
+    <file relUrl="Web.config" publishTime="04/15/2009 16:02:52" />
+    <file relUrl="bin/_svn/entries" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="NeoFileSystemService.asmx" publishTime="04/15/2009 16:02:48" />
+    <file relUrl="bin/_svn/all-wcprops" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="bin/NeoFileSystemService.dll" publishTime="08/05/2010 17:30:55" />
+    <file relUrl="Doc/FileTransfer.txt" publishTime="04/16/2009 14:57:23" />
+  </publishTarget>
+  <publishTarget publishUrl="ftp://scl01neo.netdom.com.br/neofilesystemservice/">
+    <file relUrl="bin/_svn/text-base/NeoFileSystemService.dll.svn-base" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="bin/_svn/prop-base/NeoFileSystemService.pdb.svn-base" publishTime="06/03/2009 14:00:31" />
+    <file relUrl="Doc/SoapHeader.txt" publishTime="04/16/2009 14:55:49" />
+    <file relUrl="bin/NeoFileSystemService.pdb" publishTime="04/23/2010 16:06:00" />
+    <file relUrl="Web.config" publishTime="04/15/2009 16:02:52" />
+    <file relUrl="bin/_svn/entries" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="bin/_svn/prop-base/NeoFileSystemService.dll.svn-base" publishTime="06/03/2009 14:00:31" />
+    <file relUrl="bin/NeoFileSystemService.dll" publishTime="04/23/2010 16:06:00" />
+    <file relUrl="bin/_svn/all-wcprops" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="NeoFileSystemService.asmx" publishTime="04/15/2009 16:02:48" />
+    <file relUrl="bin/_svn/text-base/NeoFileSystemService.pdb.svn-base" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="Doc/FileTransfer.txt" publishTime="04/16/2009 14:57:23" />
+  </publishTarget>
+  <publishTarget publishUrl="ftp://scl01neo.netdom.com.br/" />
+  <publishTarget publishUrl="ftp://neo.eti.br/">
+    <file relUrl="bin/_svn/text-base/NeoFileSystemService.dll.svn-base" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="bin/_svn/text-base/NeoFileSystemService.pdb.svn-base" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="bin/_svn/prop-base/NeoFileSystemService.pdb.svn-base" publishTime="06/03/2009 14:00:31" />
+    <file relUrl="Doc/SoapHeader.txt" publishTime="04/16/2009 14:55:49" />
+    <file relUrl="bin/NeoFileSystemService.pdb" publishTime="05/27/2009 10:32:47" />
+    <file relUrl="Web.config" publishTime="04/15/2009 16:02:52" />
+    <file relUrl="bin/_svn/entries" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="bin/_svn/prop-base/NeoFileSystemService.dll.svn-base" publishTime="06/03/2009 14:00:31" />
+    <file relUrl="bin/_svn/all-wcprops" publishTime="06/03/2009 14:00:32" />
+    <file relUrl="NeoFileSystemService.asmx" publishTime="04/15/2009 16:02:48" />
+    <file relUrl="bin/NeoFileSystemService.dll" publishTime="05/27/2009 10:32:47" />
+    <file relUrl="Doc/FileTransfer.txt" publishTime="04/16/2009 14:57:23" />
+  </publishTarget>
+  <publishTarget publishUrl="ftp://192.168.71.90:914/www/neofilesystemservice/">
+    <file relUrl="bin/_svn/text-base/NeoFileSystemService.dll.svn-base" publishTime="04/16/2009 09:55:39" />
+    <file relUrl="bin/_svn/prop-base/NeoFileSystemService.pdb.svn-base" publishTime="04/16/2009 09:55:35" />
+    <file relUrl="Doc/SoapHeader.txt" publishTime="04/16/2009 14:55:49" />
+    <file relUrl="bin/NeoFileSystemService.pdb" publishTime="04/16/2009 15:36:34" />
+    <file relUrl="Web.config" publishTime="04/15/2009 16:02:52" />
+    <file relUrl="bin/_svn/entries" publishTime="04/16/2009 09:55:39" />
+    <file relUrl="bin/_svn/prop-base/NeoFileSystemService.dll.svn-base" publishTime="04/16/2009 09:55:35" />
+    <file relUrl="bin/NeoFileSystemService.dll" publishTime="04/16/2009 15:36:34" />
+    <file relUrl="bin/_svn/all-wcprops" publishTime="04/16/2009 09:55:39" />
+    <file relUrl="NeoFileSystemService.asmx" publishTime="04/15/2009 16:02:48" />
+    <file relUrl="bin/_svn/text-base/NeoFileSystemService.pdb.svn-base" publishTime="04/16/2009 09:55:39" />
+    <file relUrl="Doc/FileTransfer.txt" publishTime="04/16/2009 14:57:23" />
+  </publishTarget>
+  <publishTarget publishUrl="ftp://192.168.71.90:914/www/filesystemservice/">
+    <file relUrl="bin/_svn/text-base/NeoFileSystemService.dll.svn-base" publishTime="04/16/2009 09:55:39" />
+    <file relUrl="bin/_svn/prop-base/NeoFileSystemService.pdb.svn-base" publishTime="04/16/2009 09:55:35" />
+    <file relUrl="bin/NeoFileSystemService.pdb" publishTime="04/16/2009 11:00:18" />
+    <file relUrl="Web.config" publishTime="04/15/2009 16:02:52" />
+    <file relUrl="bin/_svn/entries" publishTime="04/16/2009 09:55:39" />
+    <file relUrl="bin/_svn/prop-base/NeoFileSystemService.dll.svn-base" publishTime="04/16/2009 09:55:35" />
+    <file relUrl="bin/NeoFileSystemService.dll" publishTime="04/16/2009 11:00:18" />
+    <file relUrl="bin/_svn/all-wcprops" publishTime="04/16/2009 09:55:39" />
+    <file relUrl="NeoFileSystemService.asmx" publishTime="04/15/2009 16:02:48" />
+    <file relUrl="bin/_svn/text-base/NeoFileSystemService.pdb.svn-base" publishTime="04/16/2009 09:55:39" />
+  </publishTarget>
+</publishData>
